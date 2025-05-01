@@ -9,7 +9,6 @@ import java.time.LocalDate;
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private int patientId;
     private String name;
     private LocalDate dateOfBirth;
@@ -20,12 +19,10 @@ public class Patient {
     public Patient() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Patient(String name, LocalDate dateOfBirth, Employee employee) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.employee = employee;
     }
 
     public int getPatientId() {
@@ -58,5 +55,15 @@ public class Patient {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "patientId=" + patientId +
+                ", name='" + name + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", employee=" + employee +
+                '}';
     }
 }

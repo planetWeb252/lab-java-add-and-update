@@ -3,6 +3,9 @@ package com.introLab.introLab.model;
 import com.introLab.introLab.Enum.Status;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table
 public class Employee {
@@ -13,8 +16,17 @@ public class Employee {
     private String department;
     @Enumerated(EnumType.STRING)
     private Status statusEnum;
-
+    @OneToMany(mappedBy = "employee")
+    private List<Patient>patients=new ArrayList<>();
     public Employee() {
+    }
+
+    public List<Patient> getPatients() {
+        return patients;
+    }
+
+    public void setPatients(List<Patient> patients) {
+        this.patients = patients;
     }
 
     public int getEmployeeId() {
@@ -48,4 +60,6 @@ public class Employee {
     public void setStatusEnum(Status statusEnum) {
         this.statusEnum = statusEnum;
     }
+
+
 }

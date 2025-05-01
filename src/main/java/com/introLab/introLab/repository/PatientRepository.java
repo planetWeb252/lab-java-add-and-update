@@ -9,10 +9,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface PatientRepository extends JpaRepository<Patient, Long> {
+public interface PatientRepository extends JpaRepository<Patient, Integer> {
 
     List<Patient> findAll();
-    Patient findById(long id);
+    Patient findByPatientId(int id);
     List<Patient> findByDateOfBirthBetween(LocalDate startDate, LocalDate endDate);
     List<Patient> findPatientsByEmployeeDepartment(String department);
 
