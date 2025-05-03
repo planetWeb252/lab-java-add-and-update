@@ -12,6 +12,7 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    //Add new doctor: Create a route to add a new doctor.
     public EmployeeDTO addEmployee(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
         employee.setName(employeeDTO.getName());
@@ -22,6 +23,7 @@ public class EmployeeService {
         return new EmployeeDTO(savedEmployee);
     }
 
+    //Change doctor status: Create a route to change a doctor's status.
     public EmployeeDTO updateEmployeeStatus(EmployeeDTO employeeDTO) {
         Employee employee = employeeRepository.findByEmployeeId(employeeDTO.getEmployeeId());
         if (employee != null) {
@@ -32,6 +34,7 @@ public class EmployeeService {
         throw new RuntimeException("Employee not found");
     }
 
+    //Update doctor's department: Create a route to update a doctor's department.
     public EmployeeDTO updateEmployeeDepartment(EmployeeDTO employeeDTO) {
         Employee employee = employeeRepository.findByEmployeeId(employeeDTO.getEmployeeId());
         if (employee != null) {

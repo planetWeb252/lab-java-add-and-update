@@ -23,6 +23,7 @@ public class PatientService {
         this.employeeRepository = employeeRepository;
     }
 
+    //Add new patient: Create a route to add a new patient.
     public PatientDTO addPatient(PatientDTO patientDTO) {
         Patient patient = new Patient();
         // set Patient properties
@@ -40,8 +41,10 @@ public class PatientService {
 
     }
 
+    //Update patient information: Create a route to update patient information
+    // (the user should be able to update any patient information through this route).
     public Optional<PatientDTO> updatePatient(PatientDTO patientDTO) {
-        Optional<Patient> optionalPatient =patientRepository.findById(patientDTO.getId());
+        Optional<Patient> optionalPatient = patientRepository.findById(patientDTO.getId());
 
         if (optionalPatient.isPresent()) {
             Patient patient = optionalPatient.get();
